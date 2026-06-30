@@ -5,7 +5,7 @@ from google.oauth2 import service_account
 from google.auth.transport.requests import Request
 
 # ================= 설정 구간 =================
-SITEMAP_URL = "https://goat-1.tistory.com/sitemap.xml"  # 내 블로그 주소 반영 완료
+SITEMAP_URL = "https://goat-1.tistory.com/sitemap.xml"
 KEY_FILE = "credentials.json"
 # ============================================
 
@@ -18,7 +18,6 @@ def get_urls_from_sitemap(xml_url):
             return []
 
         xml_data = response.text
-        # 내 블로그 주소에 맞는 포스팅 URL만 정확히 추출
         pattern = r"<loc>(https:\/\/goat\-1\.tistory\.com\/(?:m\/)?entry\/[^<]+)<\/loc>"
         urls = re.findall(pattern, xml_data)
         
