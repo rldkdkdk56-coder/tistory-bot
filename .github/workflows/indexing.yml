@@ -1,0 +1,25 @@
+name: Tistory Indexing Bot
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: 파이썬 설정
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: 라이브러리 설치
+        run: pip install requests google-auth
+
+      - name: 키 파일 생성
+        run: echo '${{ secrets.GCP_SA_KEY }}' > credentials.json
+
+      - name: 봇 실행
+        run: python indexing_bot.py
