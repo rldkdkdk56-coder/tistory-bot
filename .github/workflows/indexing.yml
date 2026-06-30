@@ -20,4 +20,3 @@ jobs:
         run: echo '${{ secrets.GCP_SA_KEY }}' > credentials.json
       - name: 봇 실행
         run: python indexing_bot.py
-출처: https://betwe.tistory.com/entry/구글-SEO-구글-서치콘솔-색인-생성-자동화-완벽-가이드-Python-vs-n8n [개발과 육아사이:티스토리]
